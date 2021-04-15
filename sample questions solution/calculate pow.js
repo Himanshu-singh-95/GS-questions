@@ -9,6 +9,7 @@ const power = (x, y) => {
   temp = power(x, Math.floor(y / 2));
   if (y % 2 == 0) return temp * temp;
   else return x * temp * temp;
+
 };
 
 console.log(power(7, 2));

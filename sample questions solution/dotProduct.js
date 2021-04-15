@@ -2,6 +2,9 @@
  *
  * Given two arrays of integers, returns the dot product of the arrays
  */
+// Find the dot product of two arrays - mean array1[i] * array2[i]
+// Find the dot product of two arrays - mean array1[i] * array2[i].
+// (if the length of the two arrays are not equal then the loop should go for the lesser length).
 
 const dotProduct = (arr1, arr2) => {
   let ans = 0;

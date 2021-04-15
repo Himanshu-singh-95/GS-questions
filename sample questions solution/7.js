@@ -1,4 +1,5 @@
 // Largest substring with unique characters e.g. aaabcbdeaf Output : cbdeaf
+// Time Complexity O(N)
 const findLongestSubstring = (str) => {
   let storage = new Map();
   // Last occurrence of first
@@ -53,3 +54,36 @@ const findLongestSubstring = (str) => {
 
 const str = "GEEKSFORGEEKS";
 console.log(findLongestSubstring(str));
+
+
+// Time Complexity O(N^2)
+const longestUniqueSubStr = (str) => {
+  const arr = [...str];
+  let mp = new Map();
+  let maxLen = 0;
+  let subStringIndex = 0;
+
+  for (let i = 0; i < arr.length; ) {
+    const startIndex = i;
+    let currLen = 0;
+    while (i < arr.length && !mp.has(arr[i])) {
+      mp.set(arr[i], i);
+      i++;
+      currLen++;
+    }
+
+    if (currLen > maxLen) {
+      maxLen = currLen;
+      subStringIndex = startIndex;
+    }
+
+    if (i < arr.length) {
+      i = mp.get(arr[i]) + 1;
+    }
+    mp.clear();
+  }
+
+  return str.substring(subStringIndex, subStringIndex + maxLen);
+};
+
+console.log(longestUniqueSubStr("GEEKSFORGEEKS"));
